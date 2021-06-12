@@ -39,21 +39,59 @@ public class TypingManager : MonoBehaviour
     public List<string> activeWords;
     //Current word being attempted
     public string currentWord;
+    public int currentLettersTyped = 0;
     //What has been typed so far
     public string typedWord;
 
 
     void Start() {
-        allWords.ForEach(item => {
-            item.ForEach(innerItem => Debug.Log(innerItem));
-        });
+        // allWords.ForEach(item => {
+        //     item.ForEach(innerItem => Debug.Log(innerItem));
+        // });
+
+        // currentWord = "coquette";
+        currentWord = null;
+        activeWords.AddRange(new List<string>(){"coquette", "bournce", "ardor"});
     }
 
     void Update()
     {
-        foreach(char letter in Input.inputString){
-            Debug.Log(letter);
-        }
+
+        if(currentWord == null) {
+            //check for letter and then compare to activeWords
+            //if there is an a matching active word set it
+            foreach(string word in activeWords) {
+                foreach(char letter in Input.inputString) {
+                    if(word[0] == letter){
+                        currentWord = word;
+                        Debug.Log("new word is: " + currentWord);
+                        typedWord += letter;
+                        currentLettersTyped += 1;
+                    }
+                }
+            }
+
+
+        } else {
+            //This gets every single letter that was typed this frame
+            foreach(char letter in Input.inputString){
+                if(currentWord[currentLettersTyped] == letter){
+                    typedWord += letter;
+                    currentLettersTyped += 1;
+                    //check if complete
+                    if(currentWord == typedWord) {
+                        Debug.Log("DONE");
+                        currentWord = null;
+                        currentLettersTyped = 0;
+                    }
+                    Debug.Log(typedWord);
+                } else {
+                    currentWord = null;
+                    currentLettersTyped = 0;
+                    Debug.Log("POP");
+                }
+            }
+        }        
     }
 
     public void getNewBalloonWord(){
