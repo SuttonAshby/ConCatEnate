@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
-using System.Timers.Timer;
 
 
 public class BalloonLogic : MonoBehaviour
@@ -37,9 +36,30 @@ public class BalloonLogic : MonoBehaviour
 
 public Transform mTarget;
 float mSpeed = 3.0f;
-bool chargedBalloon = false;
-aTimer = new System.Timers.Timer(10000);
+bool chargedBalloon = true;//set to false by default; would need to be changed to true in order for the balloon to do anything.
+//aTimer = new System.Timers.Timer(10000);
 
+void changeChargeStatus(){
+    chargedBalloon = false;
+    mSpeed = 0.0f;
+}
+
+IEnumerator chargeCountdown(int seconds) 
+{
+    int counter = seconds;
+    while (counter > 0){
+        yield return new WaitForSeconds (1);
+        counter--;
+    }
+    changeChargeStatus();
+    /*for (float ft = 1f; ft >= 0; ft -= 0.1f) 
+    {
+        Color c = renderer.material.color;
+        c.a = ft;
+        renderer.material.color = c;
+        yield return null;
+    }*/
+}
 
 
 
@@ -70,21 +90,22 @@ aTimer = new System.Timers.Timer(10000);
         }
         }}
     */    
-        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (chargedBalloon == true){
             transform.LookAt(mTarget.position);
             transform.Translate(0.0f, 0.0f, mSpeed*Time.deltaTime);
-
+            StartCoroutine(chargeCountdown(5));
             //Need an if statement for if balloon touches cat, it sticks to cat...
             //await Task.Delay(5000);
             //chargedBalloon == false;
-        }
-        else{
+        //}
+        //else{
             //For now, telling balloon object to stop moving...
-            mSpeed = 0.0f;
-        }
+          //  mSpeed = 0.0f;
+        //}
     }
-}
+  }
+ }
         
     
 
