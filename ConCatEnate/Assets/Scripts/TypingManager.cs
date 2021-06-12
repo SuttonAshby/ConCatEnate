@@ -26,14 +26,15 @@ public class TypingManager : MonoBehaviour
             and IF there is a mistake
         This will have the function for getting a new word
             New starting words must have a different first letter from the rest of the active words
-            
+
     */
 
     List<List<string>> allWords = new List<List<string>>() {
         new List<string> {"apart", "ardor"},
-        new List<string> {"balloon", "bounce"}
+        new List<string> {"balloon", "bounce"},
+        new List<string> {"cuddle", "claws"}
     };
-    
+
 
     //Contains all the words currently associated with a balloon
     public List<string> activeWords;
@@ -93,7 +94,7 @@ public class TypingManager : MonoBehaviour
                     Debug.Log("POP");
                 }
             }
-        }        
+        }
     }
 
     public void getNewBalloonWord(){
