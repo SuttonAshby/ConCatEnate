@@ -23,15 +23,21 @@ public class GameManager : MonoBehaviour
         win/lose state: number of balloons stuck to cat
     */
 
+    public int balloonsLeft = 20;
+    public int balloonsNeeded = 15;
+    public int balloonsAttached = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    
+    public void checkWinState() {
+        if(balloonsAttached == balloonsNeeded) {
+            //Win State
+        } else if (balloonsLeft + balloonsAttached < balloonsNeeded) {
+            //Lose State
+        }
     }
 }
