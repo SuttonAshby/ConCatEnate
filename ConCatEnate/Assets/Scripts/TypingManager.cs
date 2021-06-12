@@ -30,9 +30,32 @@ public class TypingManager : MonoBehaviour
     */
 
     List<List<string>> allWords = new List<List<string>>() {
-        new List<string> {"apart", "ardor"},
-        new List<string> {"balloon", "bounce"},
-        new List<string> {"cuddle", "claws"}
+        new List<string> {"air", "amalgamate", "append"},
+        new List<string> {"balloon", "bounce", "blend"},
+        new List<string> {"cuddle", "curious", "coalesce"},
+        new List<string> {"dewclaw", "deflate", "danger"},
+        new List<string> {"entwine", "expand", "energetic"},
+        new List<string> {"fuse", "feline", "fur"},
+        new List<string> {"groom", "glob", "grumpy"},
+        new List<string> {"hairball", "hiss", "helium"},
+        new List<string> {"inflate", "integrate", "intelligent"},
+        new List<string> {"jump", "join", "jingle"},
+        new List<string> {"kitty", "korat"},
+        new List<string> {"link", "lithe", "litter"},
+        new List<string> {"meow", "mouse", "merge"},
+        new List<string> {"nap", "nibble", "nebelung"},
+        new List<string> {"oxygen", "ocicat", "ocelot"},
+        new List<string> {"purr", "paw", "pounce"},
+        new List<string> {"quiet", "quick", "quadruped"},
+        new List<string> {"rise", "run", "ragdoll"},
+        new List<string> {"splice", "stealthy", "siamese"},
+        new List<string> {"together", "tail", "treat"},
+        new List<string> {"unite"},
+        //new List<string> {"v", "v", "v"},
+        new List<string> {"weld", "whisker", "wild"},
+        //new List<string> {"x", "x", "x"},
+        new List<string> {"yarn"},
+        new List<string> {"zoomies"},
     };
 
 
