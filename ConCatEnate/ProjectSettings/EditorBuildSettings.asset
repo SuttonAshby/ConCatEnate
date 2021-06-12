@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ca1e419917db2cb42a696109c40900bc
+  - enabled: 1
+    path: Assets/Scenes/HowtoPlay.unity
+    guid: 3a979b8eb317ba744926030ffd9c458c
+  - enabled: 1
+    path: Assets/Scenes/AboutUs.unity
+    guid: e84dac1b5590fc74bb0bbfe6cfa3a38c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2ac2d62e37e7317469d4b32037ab34a9
+  - enabled: 1
+    path: Assets/Scenes/Semok.unity
+    guid: 161168522d7be3948aafddd62914fc4f
   m_configObjects: {}

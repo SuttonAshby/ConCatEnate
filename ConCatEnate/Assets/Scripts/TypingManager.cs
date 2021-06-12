@@ -75,7 +75,7 @@ public class TypingManager : MonoBehaviour
 
         // currentWord = "coquette";
         currentWord = null;
-        activeWords.AddRange(new List<string>(){"coquette", "bournce", "ardor"});
+        activeWords.AddRange(new List<string>(){"coquette", "bounce", "ardor"});
     }
 
     void Update()
