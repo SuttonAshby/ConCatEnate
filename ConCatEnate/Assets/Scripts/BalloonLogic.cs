@@ -35,13 +35,17 @@ public class BalloonLogic : MonoBehaviour
 */
 
 public Transform mTarget;
-float mSpeed = 3.0f;
-bool chargedBalloon = true;//set to false by default; would need to be changed to true in order for the balloon to do anything.
+float mSpeed = 1.0f;
+bool chargedBalloon = false;//set to false by default; would need to be changed to true in order for the balloon to do anything.
 //aTimer = new System.Timers.Timer(10000);
 
 void changeChargeStatus(){
     chargedBalloon = false;
     mSpeed = 0.0f;
+}
+
+private void OnTriggerEnter(Collider2D collision){
+    chargedBalloon = true;
 }
 
 IEnumerator chargeCountdown(int seconds) 
@@ -94,7 +98,7 @@ IEnumerator chargeCountdown(int seconds)
         if (chargedBalloon == true){
             transform.LookAt(mTarget.position);
             transform.Translate(0.0f, 0.0f, mSpeed*Time.deltaTime);
-            StartCoroutine(chargeCountdown(5));
+            StartCoroutine(chargeCountdown(10));
             //Need an if statement for if balloon touches cat, it sticks to cat...
             //await Task.Delay(5000);
             //chargedBalloon == false;
