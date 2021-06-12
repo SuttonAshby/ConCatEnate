@@ -82,11 +82,13 @@ public class TypingManager : MonoBehaviour
                     if(currentWord == typedWord) {
                         Debug.Log("DONE");
                         currentWord = null;
+                        typedWord = null;
                         currentLettersTyped = 0;
                     }
                     Debug.Log(typedWord);
                 } else {
                     currentWord = null;
+                    typedWord = null;
                     currentLettersTyped = 0;
                     Debug.Log("POP");
                 }
