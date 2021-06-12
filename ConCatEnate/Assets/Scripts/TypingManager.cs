@@ -98,6 +98,6 @@ public class TypingManager : MonoBehaviour
     }
 
     public void getNewBalloonWord(){
-
+        
     }
 }
