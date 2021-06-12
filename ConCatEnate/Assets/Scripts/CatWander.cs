@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
- 
+ /*
+	This script should be for the cat
+
+	The cat will either be wandering or headed to a balloon
+	If wandering it should wander randomly,
+	ELSE IF it sees a balloon stop wandering and head towards it
+
+	*/
 /// <summary>
 /// Creates wandering behaviour for a CharacterController.
 /// </summary>
