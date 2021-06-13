@@ -76,11 +76,13 @@ public class TypingManager : MonoBehaviour
         // currentWord = "coquette";
         currentWord = null;
         activeWords.AddRange(new List<string>(){"coquette", "bounce", "ardor"});
+        // getNewBalloonWord();
     }
 
     void Update()
     {
-
+        // getNewBalloonWord();
+        
         if(currentWord == null) {
             //check for letter and then compare to activeWords
             //if there is an a matching active word set it
@@ -120,7 +122,34 @@ public class TypingManager : MonoBehaviour
         }
     }
 
-    public void getNewBalloonWord(){
-        
+    public string getNewBalloonWord(){
+        //get first letters in activeWords
+        if(activeWords.Count < allWords.Count) {
+            string startingLetters = "";
+            foreach(string word in activeWords){
+                startingLetters += word[0];
+            }
+
+            //get random number between 0 and allWords.length
+            int rowToTry = Random.Range(0, allWords.Count);
+            // Debug.Log(rowToTry);
+            // Debug.Log(allWords[rowToTry][0][0]);
+
+            //check if first letter in row is in activeWords
+            if(startingLetters.Contains(allWords[rowToTry][0][0].ToString())) {
+                //IF TRUE call function again
+                return getNewBalloonWord();
+            } else {
+                //IF FALSE: get random word in row
+                int randomRowIndex = Random.Range(0, allWords[rowToTry].Count);
+                string newWord = allWords[rowToTry][randomRowIndex];
+                activeWords.Add(newWord);
+                // Debug.Log(newWord);
+                return newWord;
+            }
+        } else {
+            Debug.Log("Error: There is a word from every letter");
+            return string.Empty;
+        }
     }
 }
