@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c035f4fd71d9d42b08a8e074c258db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 6.84
-  viewAngle: 79
+  viewRadius: 12.04
+  viewAngle: 42
   targetMask:
     serializedVersion: 2
     m_Bits: 512
@@ -251,7 +251,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 2
-  directionChangeInterval: 1
+  directionChangeInterval: 2
   maxHeadingChange: 90
   visibleTargets: []
 --- !u!143 &90454540
@@ -444,7 +444,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 47dc0064ae113984e849838d26a08ee5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2368,15 +2368,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400660, guid: 78ed35e04a2bf404f906593f0946dcd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.83
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 400660, guid: 78ed35e04a2bf404f906593f0946dcd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.069
+      value: -0.077
       objectReference: {fileID: 0}
     - target: {fileID: 400660, guid: 78ed35e04a2bf404f906593f0946dcd4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -13.76
       objectReference: {fileID: 0}
     - target: {fileID: 400660, guid: 78ed35e04a2bf404f906593f0946dcd4, type: 3}
       propertyPath: m_LocalRotation.x

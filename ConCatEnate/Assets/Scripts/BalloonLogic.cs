@@ -34,28 +34,28 @@ public class BalloonLogic : MonoBehaviour
             ELSE IF it is NOT charged it will pop
 */
 
-public Transform mTarget;
-float mSpeed = 1.0f;
-bool chargedBalloon = false;//set to false by default; would need to be changed to true in order for the balloon to do anything.
+//public Transform mTarget;
+//float mSpeed = 1.0f;
+//bool chargedBalloon = false;//set to false by default; would need to be changed to true in order for the balloon to do anything.
 //aTimer = new System.Timers.Timer(10000);
 
-void changeChargeStatus(){
-    chargedBalloon = false;
-    mSpeed = 0.0f;
-}
+//void changeChargeStatus(){
+  //  chargedBalloon = false;
+    //mSpeed = 0.0f;
+//}
 
-private void OnTriggerEnter(Collider2D collision){
-    chargedBalloon = true;
-}
+//private void OnTriggerEnter(Collider2D collision){
+  //  chargedBalloon = true;
+//}
 
-IEnumerator chargeCountdown(int seconds) 
-{
-    int counter = seconds;
-    while (counter > 0){
-        yield return new WaitForSeconds (1);
-        counter--;
-    }
-    changeChargeStatus();
+//IEnumerator chargeCountdown(int seconds) 
+//{
+  //  int counter = seconds;
+    //while (counter > 0){
+      //  yield return new WaitForSeconds (1);
+        //counter--;
+    //}
+    //changeChargeStatus();
     /*for (float ft = 1f; ft >= 0; ft -= 0.1f) 
     {
         Color c = renderer.material.color;
@@ -68,14 +68,14 @@ IEnumerator chargeCountdown(int seconds)
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
         
-    }
+    //}
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
     /*
         if (Vector3.Distance(mTarget.transform.position) < 100){
             chargedBalloon = true;
@@ -95,10 +95,10 @@ IEnumerator chargeCountdown(int seconds)
         }}
     */    
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (chargedBalloon == true){
-            transform.LookAt(mTarget.position);
-            transform.Translate(0.0f, 0.0f, mSpeed*Time.deltaTime);
-            StartCoroutine(chargeCountdown(10));
+      //  if (chargedBalloon == true){
+        //    transform.LookAt(mTarget.position);
+          //  transform.Translate(0.0f, 0.0f, mSpeed*Time.deltaTime);
+            //StartCoroutine(chargeCountdown(10));
             //Need an if statement for if balloon touches cat, it sticks to cat...
             //await Task.Delay(5000);
             //chargedBalloon == false;
@@ -107,9 +107,9 @@ IEnumerator chargeCountdown(int seconds)
             //For now, telling balloon object to stop moving...
           //  mSpeed = 0.0f;
         //}
-    }
-  }
- }
+   // }
+  //}
+ //}
         
     
 
