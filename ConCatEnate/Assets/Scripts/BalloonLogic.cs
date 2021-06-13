@@ -147,6 +147,7 @@ public class BalloonLogic : MonoBehaviour
                 balloonWord = "";
                 balloonRenderer.material.SetColor("_Color", Color.blue);
                 chargedBalloon = true;
+                TypingManager.Instance.playCharge();
                 TypingManager.Instance.successfulWord = false;
                 TypingManager.Instance.failedWord = false;
                 TypingManager.Instance.resetWord();
@@ -160,6 +161,7 @@ public class BalloonLogic : MonoBehaviour
                 TypingManager.Instance.successfulWord = false;
                 TypingManager.Instance.resetWord();
                 GameManager.Instance.balloonsLeft --;
+                TypingManager.Instance.playPop();
                 Destroy(gameObject);
             }
         } else if(TypingManager.Instance.currentWord == balloonWord){

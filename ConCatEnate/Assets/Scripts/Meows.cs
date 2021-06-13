@@ -24,7 +24,7 @@ IEnumerator PlaySound()
 {
     yield return new WaitForSeconds(Random.Range(10f, 40f));
 
-    clipIndex = Random.Range(0, audioClipArray.Length - 1);
+    clipIndex = Random.Range(0, audioClipArray.Length);
     _as.PlayOneShot(audioClipArray[clipIndex], 1f);
 
     yield return new WaitForSeconds(audioClipArray[clipIndex].length);

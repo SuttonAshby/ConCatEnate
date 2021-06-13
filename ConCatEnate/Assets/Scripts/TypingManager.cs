@@ -7,6 +7,14 @@ public class TypingManager : MonoBehaviour
     //This enforces a singleton pattern
     public static TypingManager Instance {get; private set; }
 
+
+    //FOR the popping sounds
+    public AudioClip[] audioClipArray;
+    public AudioClip chargeSound;
+    public AudioSource audioSource;
+    private int clipIndex;
+
+
 	private void Awake () {
         //Initiate singleton
 		if (Instance == null) {
@@ -15,6 +23,7 @@ public class TypingManager : MonoBehaviour
 		} else {
 			Destroy(gameObject);
 		}
+        audioSource = GetComponent<AudioSource> ();
 	}
 
     /*
@@ -70,7 +79,14 @@ public class TypingManager : MonoBehaviour
     public bool successfulWord = false;
     public bool failedWord = false;
 
+    public void playPop(){
+        clipIndex = Random.Range(0, audioClipArray.Length);
+        audioSource.PlayOneShot(audioClipArray[clipIndex], 1f);
+    }
 
+    public void playCharge() {
+        audioSource.PlayOneShot(chargeSound, 1f);
+    }
     void Start() {
         // allWords.ForEach(item => {
         //     item.ForEach(innerItem => Debug.Log(innerItem));

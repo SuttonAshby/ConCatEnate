@@ -95,6 +95,7 @@ void FindVisibleTargets() {
 					TypingManager.Instance.resetWord();
 				}
 				TypingManager.Instance.removeWord(parent.GetComponent<BalloonLogic>().balloonWord);
+				TypingManager.Instance.playPop();
 				Destroy(parent);
 			}	
         }
