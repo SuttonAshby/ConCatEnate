@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
         balloonsLeft = 20;
         balloonsNeeded = 10;
         balloonsAttached = 0;
+        TypingManager.Instance.activeWords.Clear();
+        TypingManager.Instance.resetWord();
     }
 
     // Start is called before the first frame update
@@ -48,12 +50,12 @@ public class GameManager : MonoBehaviour
     public void checkWinState() {
         if(balloonsAttached == balloonsNeeded) {
             //Win State
-            resetGame();
             SceneManager.LoadScene("Win");
+            resetGame();
         } else if (balloonsLeft + balloonsAttached < balloonsNeeded) {
             //Lose State
-            resetGame();
             SceneManager.LoadScene("Lose");
+            resetGame();
         }
     }
 }
