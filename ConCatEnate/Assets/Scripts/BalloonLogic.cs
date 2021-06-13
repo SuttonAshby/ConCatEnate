@@ -161,8 +161,9 @@ public class BalloonLogic : MonoBehaviour
                 TypingManager.Instance.successfulWord = false;
                 TypingManager.Instance.resetWord();
                 GameManager.Instance.balloonsLeft --;
-                TypingManager.Instance.playPop();
                 Destroy(gameObject);
+                TypingManager.Instance.playPop();
+                GameManager.Instance.checkWinState();
             }
         } else if(TypingManager.Instance.currentWord == balloonWord){
             isCurrentWord = true;

@@ -32,18 +32,26 @@ public class GameManager : MonoBehaviour
     //FOR DEBUGGING
     public bool stayCharged = false;
 
+    void resetGame(){
+        balloonsLeft = 20;
+        balloonsNeeded = 10;
+        balloonsAttached = 0;
+    }
+
     // Start is called before the first frame update
     void Update()
     {
-        checkWinState();
+        // checkWinState();
     }
 
     public void checkWinState() {
         if(balloonsAttached == balloonsNeeded) {
             //Win State
+            resetGame();
             Application.LoadLevel ("Win");
         } else if (balloonsLeft + balloonsAttached < balloonsNeeded) {
             //Lose State
+            resetGame();
             Application.LoadLevel ("Lose");
         }
     }
