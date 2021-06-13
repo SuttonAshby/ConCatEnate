@@ -64,8 +64,9 @@ public class BalloonLogic : MonoBehaviour
         posOffset = transform.position;
         balloonRenderer = gameObject.GetComponent<Renderer>();
         lerpedColor = Color.red;
+        balloonRenderer.material.SetColor("_Color", Color.red);
         balloonWord = TypingManager.Instance.getNewBalloonWord();
-        Debug.Log(balloonWord);
+        // Debug.Log(balloonWord);
     }
     void changeChargeStatus(){
         chargedBalloon = false;
@@ -77,11 +78,11 @@ public class BalloonLogic : MonoBehaviour
         balloonWord = TypingManager.Instance.getNewBalloonWord();
     }
 
-    void OnTriggerEnter(Collider collider){
-        if (collider.gameObject.tag == "cat" && chargedBalloon){
-            isMoving = true;
-        }
-    }
+    // void OnTriggerEnter(Collider collider){
+    //     if (collider.gameObject.tag == "cat" && chargedBalloon){
+    //         isMoving = true;
+    //     }
+    // }
 
 
     IEnumerator chargeCountdown(int seconds) {
@@ -93,24 +94,25 @@ public class BalloonLogic : MonoBehaviour
         changeChargeStatus();
     }
 
-    void OnCollisionEnter(Collision collision){
-        //if charged become cat and set parent
-        //else pop
-    }
+    // void OnCollisionEnter(Collision collision){
+    //     Debug.Log("collision");
+    //     //if charged become cat and set parent
+    //     //else pop
+    // }
 
     void Update() {
         setText();
         checkWord();
 
-        if (chargedBalloon == true && !GameManager.Instance.stayCharged){
+        if (chargedBalloon && !GameManager.Instance.stayCharged && gameObject.tag != "cat"){
             changeColor();        
         }
 
-        if (isMoving && chargedBalloon){
-            float step = mSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, mTarget.position, step);
-        } 
-        else {
+        // if (isMoving && chargedBalloon){
+        //     float step = mSpeed * Time.deltaTime;
+        //     transform.position = Vector3.MoveTowards(transform.position, mTarget.position, step);
+        // } else 
+        if(gameObject.tag != "cat") {
             tempPos = posOffset;
             tempPos.z += Mathf.Sin (Time.fixedTime * Mathf.PI * zFrequency) * zAmplitude;
             tempPos.x += Mathf.Sin (Time.fixedTime * Mathf.PI * xFrequency) * xAmplitude;
@@ -132,7 +134,9 @@ public class BalloonLogic : MonoBehaviour
     }
 
     void checkWord(){
-        if(isCurrentWord){
+        if(gameObject.tag == "cat"){
+            balloonWord = "";
+        } else if(isCurrentWord){
             if(TypingManager.Instance.successfulWord){
                 isCurrentWord = false;
                 t = 0; 

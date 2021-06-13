@@ -93,7 +93,7 @@ public class TypingManager : MonoBehaviour
                 foreach(char letter in Input.inputString) {
                     if(word[0] == letter){
                         currentWord = word;
-                        Debug.Log("new word is: " + currentWord);
+                        // Debug.Log("new word is: " + currentWord);
                         typedWord += letter;
                         currentLettersTyped += 1;
                     }
@@ -110,14 +110,14 @@ public class TypingManager : MonoBehaviour
                     //check if complete
                     if(currentWord == typedWord) {
                         resetWord();
-                        Debug.Log("DONE");
+                        // Debug.Log("DONE");
                         successfulWord = true;
                         
                     }
                     // Debug.Log(typedWord);
                 } else {
                     resetWord();
-                    Debug.Log("POP");
+                    // Debug.Log("POP");
                     failedWord = true;
                 }
             }
