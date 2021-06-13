@@ -94,10 +94,11 @@ void FindVisibleTargets() {
 				if(parent.GetComponent<BalloonLogic>().balloonWord == TypingManager.Instance.currentWord){
 					TypingManager.Instance.resetWord();
 				}
+				Destroy(parent);
 				TypingManager.Instance.removeWord(parent.GetComponent<BalloonLogic>().balloonWord);
 				TypingManager.Instance.playPop();
-				Destroy(parent);
-			}	
+			}
+			GameManager.Instance.checkWinState();
         }
 	}
 	void Update ()
