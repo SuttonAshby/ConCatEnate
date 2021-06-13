@@ -67,6 +67,9 @@ public class TypingManager : MonoBehaviour
     //What has been typed so far
     public string typedWord;
 
+    public bool successfulWord = false;
+    public bool failedWord = false;
+
 
     void Start() {
         // allWords.ForEach(item => {
@@ -75,7 +78,7 @@ public class TypingManager : MonoBehaviour
 
         // currentWord = "coquette";
         currentWord = null;
-        activeWords.AddRange(new List<string>(){"coquette", "bounce", "ardor"});
+        // activeWords.AddRange(new List<string>(){"coquette", "bounce", "ardor"});
         // getNewBalloonWord();
     }
 
@@ -106,17 +109,16 @@ public class TypingManager : MonoBehaviour
                     currentLettersTyped += 1;
                     //check if complete
                     if(currentWord == typedWord) {
+                        resetWord();
                         Debug.Log("DONE");
-                        currentWord = null;
-                        typedWord = null;
-                        currentLettersTyped = 0;
+                        successfulWord = true;
+                        
                     }
-                    Debug.Log(typedWord);
+                    // Debug.Log(typedWord);
                 } else {
-                    currentWord = null;
-                    typedWord = null;
-                    currentLettersTyped = 0;
+                    resetWord();
                     Debug.Log("POP");
+                    failedWord = true;
                 }
             }
         }
@@ -151,5 +153,13 @@ public class TypingManager : MonoBehaviour
             Debug.Log("Error: There is a word from every letter");
             return string.Empty;
         }
+    }
+
+    void resetWord(){
+        int currentIndex = activeWords.IndexOf(currentWord);
+        activeWords.RemoveAt(currentIndex);
+        currentWord = null;
+        typedWord = null;
+        currentLettersTyped = 0;
     }
 }

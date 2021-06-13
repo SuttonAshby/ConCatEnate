@@ -17,12 +17,10 @@ public class AudioManager : MonoBehaviour
 	}
     public AudioSource BGM;
     // Start is called before the first frame update
-    void Start()
-    {
-    if (!BGM.isPlaying) {
-        BGM.Play();
-    }
-        
+    void Start() {
+        if (!BGM.isPlaying) {
+            BGM.Play();
+        }    
     }
     
 

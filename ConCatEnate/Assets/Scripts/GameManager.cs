@@ -27,12 +27,17 @@ public class GameManager : MonoBehaviour
     public int balloonsNeeded = 15;
     public int balloonsAttached = 0;
 
+    public int chargeDuration = 10;
+    
+    //FOR DEBUGGING
+    public bool stayCharged = false;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    
+
     public void checkWinState() {
         if(balloonsAttached == balloonsNeeded) {
             //Win State
