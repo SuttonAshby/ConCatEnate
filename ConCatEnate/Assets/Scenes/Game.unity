@@ -351,13 +351,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipArray:
-  - {fileID: 8300000, guid: 28be9b441d630144c9c4c20e51f87e1c, type: 3}
-  - {fileID: 8300000, guid: 8bf20583f08ac944c99193cf3fb0f960, type: 3}
-  - {fileID: 8300000, guid: 78e43a3d6e9db204eb243d758630062e, type: 3}
-  - {fileID: 8300000, guid: 656122b16a8ac3c40807243cb033d823, type: 3}
-  - {fileID: 8300000, guid: fd906cb8ddceb3b43a6dbde88bfed6e1, type: 3}
-  - {fileID: 8300000, guid: fcaec0a29ac8f7c45b96aa69cb3de64f, type: 3}
-  chargeSound: {fileID: 8300000, guid: cf84e2526f2124b4c98f0b7f7ad0cc2a, type: 3}
+  - {fileID: 8300000, guid: 0298756a2501df94ea77a2dcd2791bf9, type: 3}
+  - {fileID: 8300000, guid: 03a9a4ad694002540a25442691462a0e, type: 3}
+  - {fileID: 8300000, guid: 9842e470c06bf244fbe13ccbea871bab, type: 3}
+  - {fileID: 8300000, guid: fb2f46f56582c3441a021e41911f94fa, type: 3}
+  - {fileID: 8300000, guid: e1bb74d80d7834a4885db86c47d9804e, type: 3}
+  - {fileID: 8300000, guid: f477e89487adbb041961d8b5b7745106, type: 3}
+  chargeSound: {fileID: 8300000, guid: 6e9a46d8243e9cf459ba0f4dbd3116ff, type: 3}
   audioSource: {fileID: 0}
   activeWords: []
   currentWord: 
