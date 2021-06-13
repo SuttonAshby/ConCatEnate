@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,11 +49,11 @@ public class GameManager : MonoBehaviour
         if(balloonsAttached == balloonsNeeded) {
             //Win State
             resetGame();
-            Application.LoadLevel ("Win");
+            SceneManager.LoadScene("Win");
         } else if (balloonsLeft + balloonsAttached < balloonsNeeded) {
             //Lose State
             resetGame();
-            Application.LoadLevel ("Lose");
+            SceneManager.LoadScene("Lose");
         }
     }
 }
