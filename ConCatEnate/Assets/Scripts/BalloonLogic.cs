@@ -55,7 +55,7 @@ public class BalloonLogic : MonoBehaviour
 
     //Used for word ///////////////////////////////////////////
     bool isCurrentWord = false;
-    string balloonWord = "";
+    public string balloonWord = "";
     public TextMeshPro textmeshPro;
 
 
@@ -129,8 +129,12 @@ public class BalloonLogic : MonoBehaviour
     void setText(){
         if(isCurrentWord) {
             // bold/color what is already typed
+            string remainder = balloonWord.Substring(TypingManager.Instance.typedWord.Length);
+            string styledWord = "<b><color=red>"+TypingManager.Instance.typedWord+"</color></b>"+remainder;
+            textmeshPro.SetText(styledWord);
+        } else {
+            textmeshPro.SetText(balloonWord);
         }
-        textmeshPro.SetText(balloonWord);
     }
 
     void checkWord(){
@@ -144,6 +148,7 @@ public class BalloonLogic : MonoBehaviour
                 balloonRenderer.material.SetColor("_Color", Color.blue);
                 chargedBalloon = true;
                 TypingManager.Instance.successfulWord = false;
+                TypingManager.Instance.resetWord();
                 if(!GameManager.Instance.stayCharged) {
                     StartCoroutine(chargeCountdown(GameManager.Instance.chargeDuration));
                 }
@@ -151,6 +156,7 @@ public class BalloonLogic : MonoBehaviour
             } else if(TypingManager.Instance.failedWord) {
                 isCurrentWord = false;
                 TypingManager.Instance.failedWord = false;
+                TypingManager.Instance.resetWord();
                 GameManager.Instance.balloonsLeft --;
                 Destroy(gameObject);
             }

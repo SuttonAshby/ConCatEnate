@@ -109,14 +109,14 @@ public class TypingManager : MonoBehaviour
                     currentLettersTyped += 1;
                     //check if complete
                     if(currentWord == typedWord) {
-                        resetWord();
+                        // resetWord();
                         // Debug.Log("DONE");
                         successfulWord = true;
                         
                     }
                     // Debug.Log(typedWord);
                 } else {
-                    resetWord();
+                    // resetWord();
                     // Debug.Log("POP");
                     failedWord = true;
                 }
@@ -155,7 +155,7 @@ public class TypingManager : MonoBehaviour
         }
     }
 
-    void resetWord(){
+    public void resetWord(){
         int currentIndex = activeWords.IndexOf(currentWord);
         activeWords.RemoveAt(currentIndex);
         currentWord = null;

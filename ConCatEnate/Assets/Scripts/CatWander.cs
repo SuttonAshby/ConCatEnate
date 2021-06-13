@@ -83,6 +83,7 @@ void FindVisibleTargets() {
 		if (collider.gameObject.tag == "balloon"){
 			GameObject parent = collider.gameObject.transform.parent.gameObject;
 			if(parent.GetComponent<BalloonLogic>().chargedBalloon) {
+				GameManager.Instance.balloonsAttached ++;
 				collider.gameObject.tag = "cat";
 				collider.gameObject.layer = 0;
             	parent.tag = "cat";
@@ -90,6 +91,9 @@ void FindVisibleTargets() {
 				parent.transform.SetParent(gameObject.transform);
 			} else {
 				GameManager.Instance.balloonsLeft --;
+				if(parent.GetComponent<BalloonLogic>().balloonWord == TypingManager.Instance.currentWord){
+					TypingManager.Instance.resetWord();
+				}
 				Destroy(parent);
 			}
 			

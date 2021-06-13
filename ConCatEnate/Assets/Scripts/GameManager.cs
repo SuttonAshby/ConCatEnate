@@ -33,16 +33,18 @@ public class GameManager : MonoBehaviour
     public bool stayCharged = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        
+        checkWinState();
     }
 
     public void checkWinState() {
         if(balloonsAttached == balloonsNeeded) {
             //Win State
+            Application.LoadLevel ("Win");
         } else if (balloonsLeft + balloonsAttached < balloonsNeeded) {
             //Lose State
+            Application.LoadLevel ("Lose");
         }
     }
 }
