@@ -134,6 +134,8 @@ public class BalloonLogic : MonoBehaviour
     void checkWord(){
         if(isCurrentWord){
             if(TypingManager.Instance.successfulWord){
+                isCurrentWord = false;
+                t = 0; 
                 balloonWord = "";
                 balloonRenderer.material.SetColor("_Color", Color.blue);
                 chargedBalloon = true;
@@ -143,6 +145,7 @@ public class BalloonLogic : MonoBehaviour
                 }
                 
             } else if(TypingManager.Instance.failedWord) {
+                isCurrentWord = false;
                 TypingManager.Instance.failedWord = false;
                 GameManager.Instance.balloonsLeft --;
                 Destroy(gameObject);
