@@ -68,25 +68,47 @@ void FindVisibleTargets() {
 }
 
 
-public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
-        if (!angleIsGlobal) {
-                angleInDegrees += transform.eulerAngles.y;
-        }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0,Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-}
+	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
+		if (!angleIsGlobal) {
+				angleInDegrees += transform.eulerAngles.y;
+		}
+		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0,Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+	}
+
+	public float smooth = 1f;
  
+	private Vector3 targetAngles;
+
+	void OnTriggerEnter(Collider collider){
+		if (collider.gameObject.tag == "balloon"){
+			GameObject parent = collider.gameObject.transform.parent.gameObject;
+			if(parent.GetComponent<BalloonLogic>().chargedBalloon) {
+				collider.gameObject.tag = "cat";
+				collider.gameObject.layer = 0;
+            	parent.tag = "cat";
+				parent.layer = 0;
+				parent.transform.SetParent(gameObject.transform);
+			} else {
+				GameManager.Instance.balloonsLeft --;
+				Destroy(parent);
+			}
+			
+        } else if(collider.gameObject.layer == 8) {
+			//TODO get cat to turn sharply
+		}
+	}
 	void Update ()
 	{
 		if (visibleTargets.Count > 0) {
 			//float step =  speed * Time.deltaTime; // calculate distance to move
-        //transform.position = Vector3.MoveTowards(transform.position, visibleTargets[0].transform.position, step);
+        	//transform.position = Vector3.MoveTowards(transform.position, visibleTargets[0].transform.position, step);
 			transform.LookAt(visibleTargets[0].transform);
 		}
 		else {
-		transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
+			transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
 		}
-			var forward = transform.TransformDirection(Vector3.forward);
-			controller.SimpleMove(forward * speed);
+		var forward = transform.TransformDirection(Vector3.forward);
+		controller.SimpleMove(forward * speed);
 	}
  
 	/// <summary>
