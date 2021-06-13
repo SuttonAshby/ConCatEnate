@@ -99,8 +99,6 @@ public class TypingManager : MonoBehaviour
                     }
                 }
             }
-
-
         } else {
             //This gets every single letter that was typed this frame
             foreach(char letter in Input.inputString){
@@ -155,9 +153,12 @@ public class TypingManager : MonoBehaviour
         }
     }
 
-    public void resetWord(){
-        int currentIndex = activeWords.IndexOf(currentWord);
+    public void removeWord(string word){
+        int currentIndex = activeWords.IndexOf(word);
         activeWords.RemoveAt(currentIndex);
+    }
+    public void resetWord(){
+        removeWord(currentWord);
         currentWord = null;
         typedWord = null;
         currentLettersTyped = 0;

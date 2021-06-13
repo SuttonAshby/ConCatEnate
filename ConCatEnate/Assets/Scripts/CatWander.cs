@@ -94,12 +94,10 @@ void FindVisibleTargets() {
 				if(parent.GetComponent<BalloonLogic>().balloonWord == TypingManager.Instance.currentWord){
 					TypingManager.Instance.resetWord();
 				}
+				TypingManager.Instance.removeWord(parent.GetComponent<BalloonLogic>().balloonWord);
 				Destroy(parent);
-			}
-			
-        } else if(collider.gameObject.layer == 8) {
-			//TODO get cat to turn sharply
-		}
+			}	
+        }
 	}
 	void Update ()
 	{

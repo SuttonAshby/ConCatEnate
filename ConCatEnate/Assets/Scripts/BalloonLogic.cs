@@ -148,6 +148,7 @@ public class BalloonLogic : MonoBehaviour
                 balloonRenderer.material.SetColor("_Color", Color.blue);
                 chargedBalloon = true;
                 TypingManager.Instance.successfulWord = false;
+                TypingManager.Instance.failedWord = false;
                 TypingManager.Instance.resetWord();
                 if(!GameManager.Instance.stayCharged) {
                     StartCoroutine(chargeCountdown(GameManager.Instance.chargeDuration));
@@ -156,6 +157,7 @@ public class BalloonLogic : MonoBehaviour
             } else if(TypingManager.Instance.failedWord) {
                 isCurrentWord = false;
                 TypingManager.Instance.failedWord = false;
+                TypingManager.Instance.successfulWord = false;
                 TypingManager.Instance.resetWord();
                 GameManager.Instance.balloonsLeft --;
                 Destroy(gameObject);
